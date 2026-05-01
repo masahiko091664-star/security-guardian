@@ -129,14 +129,14 @@ const MAX_W=ITEMS.reduce((s,i)=>s+i.w,0);
 // ─── CSS ─────────────────────────────────────────────────────────────────────
 const CSS=`
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap');
-:root{--g:#00ffaa;--c:#00ccff;--y:#ffcc00;--r:#ff3355;--bg:#020c0f;--bg2:#071520;--bg3:#0a1d28;--bd:#00ffaa15;}
+:root{--g:#00ffaa;--c:#00ccff;--y:#ffcc00;--r:#ff3355;--bg:#061a20;--bg2:#0c2a35;--bg3:#102f3c;--bd:#00ffaa15;}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:#c8fff0;font-family:'Rajdhani',sans-serif;font-size:15px}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:#00ffaa33;border-radius:2px}
 
 /* Matrix canvas */
-#mx{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.18}
+#mx{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.35}
 
 /* Ticker */
 .ticker{background:#000a0f;border-bottom:1px solid #00ffaa22;padding:6px 0;overflow:hidden;position:relative;z-index:10}
@@ -147,7 +147,7 @@ body{background:var(--bg);color:#c8fff0;font-family:'Rajdhani',sans-serif;font-s
 .ticker-dot{color:#00ffaa;margin-right:8px}
 
 /* Header */
-.hdr{display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:1px solid var(--bd);background:linear-gradient(90deg,#020c0f,#071a14);position:relative;z-index:10}
+.hdr{display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:1px solid var(--bd);background:linear-gradient(90deg,#061a20,#071a14);position:relative;z-index:10}
 .logo{font-family:'Share Tech Mono',monospace;font-size:22px;letter-spacing:5px;background:linear-gradient(90deg,#00ffaa,#00ccff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 10px #00ffaa88)}
 .ver{font-family:'Share Tech Mono',monospace;font-size:10px;color:#00ffaa44;letter-spacing:3px;margin-top:2px}
 .live{margin-left:auto;display:flex;align-items:center;gap:8px;font-family:'Share Tech Mono',monospace;font-size:11px;color:#00ffaa66}
@@ -326,11 +326,11 @@ function MatrixRain(){
     const cols=Math.floor(c.width/18),drops=Array(cols).fill(1);
     const chars="01アイウエオカキクケコサシスセソ0110010111000110";
     const draw=()=>{
-      ctx.fillStyle="rgba(2,12,15,0.08)";ctx.fillRect(0,0,c.width,c.height);
+      ctx.fillStyle="rgba(6,26,32,0.07)";ctx.fillRect(0,0,c.width,c.height);
       drops.forEach((y,i)=>{
         const ch=chars[Math.floor(Math.random()*chars.length)];
         const alpha=Math.random()*0.2+0.05;
-        ctx.fillStyle=`rgba(0,255,170,${alpha})`;
+        ctx.fillStyle=`rgba(0,255,204,${alpha})`;
         ctx.font=`14px 'Share Tech Mono',monospace`;
         ctx.fillText(ch,i*18,y*18);
         if(y*18>c.height&&Math.random()>.97)drops[i]=0;
@@ -545,7 +545,7 @@ export default function App(){
                       </defs>
                       <XAxis dataKey="日付" tick={{fontSize:10}}/>
                       <YAxis domain={[0,100]} tick={{fontSize:10}}/>
-                      <Tooltip contentStyle={{background:"#071520",border:"1px solid #00ffaa22",fontFamily:"'Share Tech Mono',monospace",fontSize:12}}/>
+                      <Tooltip contentStyle={{background:"#0c2a35",border:"1px solid #00ffaa22",fontFamily:"'Share Tech Mono',monospace",fontSize:12}}/>
                       <Area type="monotone" dataKey="スコア" stroke="#00ffaa" strokeWidth={2} fill="url(#g1)"/>
                     </AreaChart>
                   </ResponsiveContainer>
